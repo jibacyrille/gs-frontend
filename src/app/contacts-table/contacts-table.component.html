@@ -1,0 +1,91 @@
+<div class="table-container">
+    <table mat-table [dataSource]="filteredContacts" class="mat-elevation-z8">
+      
+      <!-- Nom de la colonne -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>
+          Name
+          <button mat-icon-button (click)="toggleDropdown('name')">
+            <mat-icon>filter_list</mat-icon>
+          </button>
+          <!-- Menu déroulant des checkbox -->
+          <div *ngIf="dropdownVisible['name']" class="dropdown">
+            <mat-checkbox (change)="toggleSelectAll('name', $event.checked)">Select All</mat-checkbox>
+            <mat-checkbox *ngFor="let option of uniqueNames" [(ngModel)]="selectedName[option]" (change)="applyFilter()"> 
+              {{ option }}
+            </mat-checkbox>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+  
+      <!-- Colonne Company -->
+      <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef>
+          Company
+          <button mat-icon-button (click)="toggleDropdown('company')">
+            <mat-icon>filter_list</mat-icon>
+          </button>
+          <!-- Menu déroulant des checkbox -->
+          <div *ngIf="dropdownVisible['company']" class="dropdown">
+            <mat-checkbox (change)="toggleSelectAll('company', $event.checked)">Select All</mat-checkbox>
+            <mat-checkbox *ngFor="let option of uniqueCompanies" [(ngModel)]="selectedCompany[option]" (change)="applyFilter()"> 
+              {{ option }}
+            </mat-checkbox>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{element.company}}</td>
+      </ng-container>
+  
+      <!-- Colonne Statut -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>
+          Status
+          <button mat-icon-button (click)="toggleDropdown('status')">
+            <mat-icon>filter_list</mat-icon>
+          </button>
+          <!-- Menu déroulant des checkbox -->
+          <div *ngIf="dropdownVisible['status']" class="dropdown">
+            <mat-checkbox (change)="toggleSelectAll('status', $event.checked)">Select All</mat-checkbox>
+            <mat-checkbox *ngFor="let option of uniqueStatuses" [(ngModel)]="selectedStatus[option]" (change)="applyFilter()"> 
+              {{ option }}
+            </mat-checkbox>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{element.status}}</td>
+      </ng-container>
+  
+      <!-- Colonne Assigné à -->
+      <ng-container matColumnDef="assignedTo">
+        <th mat-header-cell *matHeaderCellDef>
+          Assigned to
+          <button mat-icon-button (click)="toggleDropdown('assignedTo')">
+            <mat-icon>filter_list</mat-icon>
+          </button>
+          <!-- Menu déroulant des checkbox -->
+          <div *ngIf="dropdownVisible['assignedTo']" class="dropdown">
+            <mat-checkbox (change)="toggleSelectAll('assignedTo', $event.checked)">Select All</mat-checkbox>
+            <mat-checkbox *ngFor="let option of uniqueAssignedTo" [(ngModel)]="selectedAssignedTo[option]" (change)="applyFilter()"> 
+              {{ option }}
+            </mat-checkbox>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{element.assignedTo}}</td>
+      </ng-container>
+  
+      <!-- Colonne Téléphone -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Phone</th>
+        <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+      </ng-container>
+  
+      <!-- Colonne Email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>  

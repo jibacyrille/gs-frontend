@@ -1,0 +1,62 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center ">
+    <mat-card [formGroup]="studentFormGroup" class="payment-form" class="section-card">
+        <mat-card-header>
+            <mat-card-title>Remplissez les champs suivants</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Nom Élève</mat-label>
+                <input matInput formControlName="nom" required>
+                <mat-error *ngIf="studentFormGroup.get('nom')?.hasError('required') && studentFormGroup.get('nom')?.touched">
+                  Ce champ est obligatoire.
+                </mat-error>
+              </mat-form-field>
+          
+              <mat-form-field appearance="outline">
+                <mat-label>Prénom Élève</mat-label>
+                <input matInput formControlName="prenom" required>
+                <mat-error *ngIf="studentFormGroup.get('prenom')?.hasError('required') && studentFormGroup.get('prenom')?.touched">
+                  Ce champ est obligatoire.
+                </mat-error>
+              </mat-form-field>
+          
+              <mat-form-field appearance="outline">
+                <mat-label>Classe</mat-label>
+                <mat-select formControlName="classe" required>
+                  <mat-option *ngFor="let t of classList" [value]="t">{{ t }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="studentFormGroup.get('classe')?.hasError('required') && studentFormGroup.get('classe')?.touched">
+                  Ce champ est obligatoire.
+                </mat-error>
+              </mat-form-field>
+          
+              <mat-form-field appearance="outline">
+                <mat-label>Date Inscription</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateIns" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="studentFormGroup.get('dateIns')?.hasError('required') && studentFormGroup.get('dateIns')?.touched">
+                  Ce champ est obligatoire.
+                </mat-error>
+              </mat-form-field>
+           
+          </mat-card-content>
+          
+          <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+            <button mat-raised-button color="primary" (click)="initStudent()" [disabled]="studentFormGroup.invalid">
+              Inscrire
+            </button>
+           
+        @if(showProgress){
+            <mat-spinner></mat-spinner>
+        }
+    </mat-card-actions>
+</mat-card>
+<button mat-icon-button (click)="close()" color="warn">
+    <mat-icon>close</mat-icon>
+  </button>
+
+
+</div>

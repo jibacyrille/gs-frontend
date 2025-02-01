@@ -1,0 +1,34 @@
+<div class="container">
+    <mat-toolbar fxLayout="row" fxLayoutGap="20px">
+        <!--button (click)="showChild()" mat-raised-button color="primary"-->
+        <button (click)="openDialog()" mat-raised-button color="primary">
+          <mat-icon>person_add</mat-icon> Nouvel Élève
+        </button>
+        <button (click)="2" mat-raised-button color="accent">
+          <mat-icon>check_circle</mat-icon> Valider une Inscription
+        </button>
+        <button (click)="3" mat-raised-button color="primary">
+          <mat-icon>edit</mat-icon> Éditer un Élève
+        </button>
+        <button (click)="5" mat-raised-button color="accent">
+          <mat-icon>upload</mat-icon> Importer un Élève
+        </button>
+        <button (click)="4" mat-raised-button color="warn">
+          <mat-icon>delete</mat-icon> Supprimer un Élève
+        </button>
+      </mat-toolbar>
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>
+                  Nouvel Élève
+              </mat-card-title>            
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+
+           <!--app-new-student *ngIf="isChildVisible" (closeChild)="hideChild()"></app-new-student-->
+           <app-liste-inscription></app-liste-inscription>
+  
+          </mat-card-content>
+      </mat-card>
+  </div>

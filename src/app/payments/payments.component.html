@@ -1,0 +1,101 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Payments
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+
+
+            <mat-form-field appearance="fill">
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Filter by keyword">
+            </mat-form-field>
+
+            <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="amount">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                  <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="type">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                  <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> firstName</th>
+                    <td mat-cell *matCellDef="let element"> {{element.eleve.firstName}} </td>
+                </ng-container>
+
+
+
+
+                <ng-container matColumnDef="details">
+                  <th mat-header-cell *matHeaderCellDef> Details </th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="0">
+                        <mat-icon class="mat-18">reorder</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="update">
+                    <th mat-header-cell *matHeaderCellDef> Update </th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button color="accent" (click)="1">
+                          <mat-icon class="mat-18">system_update</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="delete">
+                      <th mat-header-cell *matHeaderCellDef> Delete </th>
+                      <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="warn" (click)="deletePayment(element.id)">
+                            <mat-icon class="mat-18">delete</mat-icon>
+                        </button>
+                      </td>
+                    </ng-container>
+
+
+
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+              </mat-paginator>
+
+        </mat-card-content>
+    </mat-card>
+</div>

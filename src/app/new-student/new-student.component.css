@@ -1,0 +1,22 @@
+
+mat-form-field{
+    display: block;
+}
+.payment-form {
+    width: 600px;
+}
+.card-divider {
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 10px 0;
+  width: 100%; /* S'assure que la ligne couvre la largeur complète */
+}
+.section-card {
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    border: 2px solid #540439; /* Augmente la visibilité des bordures des cartes */
+    border-radius: 8px; /* Ajoute un léger arrondi aux coins de la carte */
+    
+  }
