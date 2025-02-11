@@ -19,7 +19,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule} from '@angular/forms'; 
-import { NgxSearchFilterModule } from 'ngx-search-filter';
+
 
 
 import { HomeComponent } from './home/home.component';
