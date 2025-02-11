@@ -17,6 +17,8 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewStudentComponent } from './new-student/new-student.component';
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
+import { EleveListComponent } from './eleve-list/eleve-list.component';
+import { OrganisationAcaComponent } from './organisation-aca/organisation-aca.component';
 
 const routes: Routes = [
   {path: "", component : LoginComponent},
@@ -40,7 +42,9 @@ const routes: Routes = [
       {path: "user-profile", component : UserProfileComponent},
       {path: "init-eleve", component : NewStudentComponent},
       {path: "profile/:matricule", component : ProfileComponent},
-      {path: "inscriptions", component : InscriptionsComponent}
+      {path: "inscriptions", component : InscriptionsComponent},
+      {path: "eleves", component : EleveListComponent},
+      {path: "organisation-aca", component : OrganisationAcaComponent}
       
 
     ]},
@@ -48,7 +52,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

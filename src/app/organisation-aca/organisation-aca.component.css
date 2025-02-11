@@ -1,0 +1,39 @@
+    body {
+      background-color: #f8f9fa;
+    }
+    /* Style du sidebar */
+    .sidebar {
+      background: #fff;
+      border-right: 1px solid #ddd;
+      min-height: 100vh;
+    }
+    .sidebar .nav-link {
+      color: #333;
+      font-weight: 500;
+    }
+    .sidebar .nav-link.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .sidebar .nav-link i {
+      margin-right: 8px;
+    }
+    /* Zone de contenu */
+    .content {
+      padding: 20px;
+    }
+    /* Tableaux */
+    .table th, .table td {
+      vertical-align: middle;
+    }
+    .btn i {
+      margin-right: 4px;
+    }
+
+    .form-control.w-25 {
+        border-radius: 10px;
+        border-color: rgb(22, 139, 242);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Vous pouvez ajuster la couleur et la taille de l'ombre selon vos goûts */
+      }
+    h3{font-size: 30px;}

@@ -1,0 +1,76 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Eleves
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+
+           <table matSort mat-table [dataSource]="elevesDataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Matricule">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Matricule </th>
+              <td mat-cell *matCellDef="let eleve"> {{eleve.matricule}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="Nom">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+              <td mat-cell *matCellDef="let eleve"> {{eleve.nomEleve}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Prenom">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+              <td mat-cell *matCellDef="let eleve"> {{eleve.prenomEleve}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Date de Naissance">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Classe </th>
+                <td mat-cell *matCellDef="let eleve"> {{eleve.datenaisEleve}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Lieu de Naissance">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> État </th>
+              <td mat-cell *matCellDef="let eleve"> {{eleve.lieuNaissance}} </td>
+          </ng-container>
+
+             <!-- Symbol Column -->
+             <ng-container matColumnDef="Actions">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>
+                <td mat-cell *matCellDef="let eleve"> 
+                    <button  mat-icon-button color="warn" *ngIf="eleve.idEleve !== undefined" (click)="deleteEleve(eleve.idEleve)">
+                        <mat-icon class="mat-18">clear</mat-icon>
+                        <mat-icon class="mat-18">delete_outline</mat-icon>
+                        <mat-icon class="mat-18">cancel</mat-icon>
+                    </button>
+                </td>
+               
+             </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+             showFirstLastButtons
+             aria-label="Select page of periodic elements">
+          </mat-paginator>
+
+        </mat-card-content>
+    </mat-card>
+
+</div>

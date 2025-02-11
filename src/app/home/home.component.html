@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
     <mat-card>
         <mat-card-header>
             <mat-card-title>
@@ -10,4 +10,95 @@
             Home Content
         </mat-card-content>
     </mat-card>
-</div>
+</div>-->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'accueil - Système Académique</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ 
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row g-4">
+      <!-- Utilisateurs & Authentification -->
+      <a class="col-md-4" [routerLink]="['/admin/inscriptions']">
+        <div class="feature-box">
+          <span class="feature-number">01</span>
+          <i class="fas fa-user-lock"></i>
+          <h5 class="mt-3">Utilisateurs</h5>
+          <p>
+            Gestion des comptes (élèves, enseignants, tuteurs, administrateurs)<br>
+            Authentification via JWT et gestion des rôles
+          </p>
+        </div>
+      </a>
+      <!-- Organisation Académique -->
+      <a class="col-md-4" *ngIf="authService.roles.includes('ADMIN')" [routerLink]="['/admin/organisation-aca']">
+        <div class="feature-box">
+          <span class="feature-number">02</span>
+          <i class="fas fa-school"></i>
+          <h5 class="mt-3">Organisation Académique</h5>
+          <p>
+            Création et gestion des classes, niveaux, cycles, sections, matières et cours<br>
+            Association des enseignants aux cours
+          </p>
+        </div>
+    </a>
+      <!-- Inscriptions -->
+      <a class="col-md-4" [routerLink]="['/admin/inscriptions']">
+        <div class="feature-box">
+          <span class="feature-number">03</span>
+          <i class="fas fa-edit"></i>
+          <h5 class="mt-3">Inscriptions</h5>
+          <p>
+            Enregistrement des inscriptions par année scolaire<br>
+            Gestion des redoublements et des associations (par exemple, EleveAdresse)
+          </p>
+        </div>
+    </a>
+      <!-- Évaluations -->
+      <a class="col-md-4" [routerLink]="['/organisation-aca']">
+        <div class="feature-box">
+          <span class="feature-number">04</span>
+          <i class="fas fa-clipboard-check"></i>
+          <h5 class="mt-3">Évaluations</h5>
+          <p>
+            Saisie des notes par séquence et trimestre<br>
+            Calcul des moyennes et génération des bulletins
+          </p>
+        </div>
+    </a>
+      <!-- Finances -->
+      <a class="col-md-4" [routerLink]="['/admin/inscriptions']">
+        <div class="feature-box">
+          <span class="feature-number">05</span>
+          <i class="fas fa-dollar-sign"></i>
+          <h5 class="mt-3">Finances</h5>
+          <p>
+            Suivi des paiements et frais de scolarité<br>
+            Génération de rapports financiers
+          </p>
+        </div>
+    </a>
+      <!-- Absences & Rapports -->
+      <a class="col-md-4" [routerLink]="['/admin/inscriptions']">
+        <div class="feature-box">
+          <span class="feature-number">06</span>
+          <i class="fas fa-file-alt"></i>
+          <h5 class="mt-3">Absences & Rapports</h5>
+          <p>
+            Enregistrement des absences et retards<br>
+            Visualisation d'indicateurs et statistiques
+          </p>
+        </div>
+    </a>
+    </div>
+  </div>
+</body>
+</html>

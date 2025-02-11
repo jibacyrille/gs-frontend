@@ -7,6 +7,24 @@ export interface Student {
     photo: String,
 
 }
+
+
+export interface Eleve {
+  idEleve?: number;
+  matricule: string;
+  nomEleve: string;
+  prenomEleve: string;
+  sexeEleve: string;
+  datenaisEleve: Date;  // format ISO (exemple "2005-03-15")
+  lieuNaissance: string;
+  nomMere: string;
+  nomPere: string;
+  dateCreation: Date;
+  dateModif: Date;
+  // Vous pouvez ajouter d'autres champs ou des références à l'adresse
+}
+
+
 export interface EleveInitDTO {
     id: string,
     matricule:string,

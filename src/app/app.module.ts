@@ -19,6 +19,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule} from '@angular/forms'; 
+import { NgxSearchFilterModule } from 'ngx-search-filter';
 
 
 import { HomeComponent } from './home/home.component';
@@ -51,6 +52,9 @@ import { InscriptionsComponent } from './inscriptions/inscriptions.component';
 import { ListeInscriptionComponent } from './liste-inscription/liste-inscription.component';
 import { TestComponent } from './test/test.component';
 import { ContactsTableComponent } from './contacts-table/contacts-table.component';
+import { EleveListComponent } from './eleve-list/eleve-list.component';
+import { OrganisationAcaComponent } from './organisation-aca/organisation-aca.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -74,7 +78,10 @@ import { ContactsTableComponent } from './contacts-table/contacts-table.componen
     InscriptionsComponent,
     ListeInscriptionComponent,
     TestComponent,
-    ContactsTableComponent
+    ContactsTableComponent,
+    EleveListComponent,
+    OrganisationAcaComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
